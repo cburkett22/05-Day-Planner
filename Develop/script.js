@@ -1,5 +1,5 @@
 // Current Date
-$(document).ready(function currentDate() {
+$(document).ready(function() {
 let month = new Array();
     month[0] = "January";
     month[1] = "February";
@@ -22,10 +22,11 @@ let day = new Array();
     day[4] = "Friday";
     day[5] = "Saturday";
     day[6] = "Sunday";
-    
+
 let d = new Date();
 let dayNum = d.getDate();
-let output = day[d.getDay() -1] + ', ' + month[d.getMonth()] + ' ' + dayNum + 'th';
+let year = d.getFullYear();
+let output = day[d.getDay() -1] + ', ' + month[d.getMonth()] + ' ' + dayNum + ', ' + year;
 
 $('#currentDay').html(output);
 });
