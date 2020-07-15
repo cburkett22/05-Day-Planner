@@ -1,34 +1,33 @@
-// Current Date
 $(document).ready(function() {
-let month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";
+    const date = moment();
+    
+    // Current day & time
+    $("#currentDay").html(date.format("dddd, MMMM Do YYYY, h:mma"));
 
-let day = new Array();
-    day[0] = "Monday";
-    day[1] = "Tuesday";
-    day[2] = "Wednesday";
-    day[3] = "Thursday";
-    day[4] = "Friday";
-    day[5] = "Saturday";
-    day[6] = "Sunday";
+    // past, present, future
+    // ... = spread and rest
+    $(".description").each(function() {
+        let hour = $(this).attr("id");
+        let number = [...hour];
+        console.log(number);
+    });
 
-let d = new Date();
-let dayNum = d.getDate();
-let year = d.getFullYear();
-let output = day[d.getDay() -1] + ', ' + month[d.getMonth()] + ' ' + dayNum + ', ' + year;
+    // Save text in local storage
+    let saveBtn = $("button");
+    $("#9am .textarea").val(localStorage.getItem("9am"));
+    $("#10am .textarea").val(localStorage.getItem("10am"));
+    $("#11am .textarea").val(localStorage.getItem("11am"));
+    $("#12pm .textarea").val(localStorage.getItem("12pm"));
+    $("#1pm .textarea").val(localStorage.getItem("1pm"));
+    $("#2pm .textarea").val(localStorage.getItem("2pm"));
+    $("#3pm .textarea").val(localStorage.getItem("3pm"));
+    $("#4pm .textarea").val(localStorage.getItem("4pm"));
+    $("#5pm .textarea").val(localStorage.getItem("5pm"));
 
-$('#currentDay').html(output);
+    $(saveBtn).click(function() {
+        let hour = $(this).parent().attr("id");
+        let content = $(this).siblings(".textarea").val();
+        localStorage.setItem(hour, content);
+    });
+
 });
-
-
