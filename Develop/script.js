@@ -1,33 +1,39 @@
 $(document).ready(function() {
-    const date = moment();
-    
     // Current day & time
-    $("#currentDay").html(date.format("dddd, MMMM Do YYYY, h:mma"));
-
-    // past, present, future
-    // ... = spread and rest
-    $(".description").each(function() {
-        let hour = $(this).attr("id");
-        let number = [...hour];
-        console.log(number);
-    });
+    let date = moment();
+    $("#currentDay").html(date.format("dddd, MMMM Do YYYY, H:mm"));
 
     // Save text in local storage
     let saveBtn = $("button");
     $("#9am .textarea").val(localStorage.getItem("9am"));
     $("#10am .textarea").val(localStorage.getItem("10am"));
     $("#11am .textarea").val(localStorage.getItem("11am"));
-    $("#12pm .textarea").val(localStorage.getItem("12pm"));
-    $("#1pm .textarea").val(localStorage.getItem("1pm"));
-    $("#2pm .textarea").val(localStorage.getItem("2pm"));
-    $("#3pm .textarea").val(localStorage.getItem("3pm"));
-    $("#4pm .textarea").val(localStorage.getItem("4pm"));
-    $("#5pm .textarea").val(localStorage.getItem("5pm"));
+    $("#12 .textarea").val(localStorage.getItem("12"));
+    $("#13 .textarea").val(localStorage.getItem("13"));
+    $("#14 .textarea").val(localStorage.getItem("14"));
+    $("#15 .textarea").val(localStorage.getItem("15"));
+    $("#16 .textarea").val(localStorage.getItem("16"));
+    $("#17 .textarea").val(localStorage.getItem("17"));
 
     $(saveBtn).click(function() {
         let hour = $(this).parent().attr("id");
         let content = $(this).siblings(".textarea").val();
         localStorage.setItem(hour, content);
+    });
+    
+    // Past, present, future
+    $(".description").each(function() {
+        let hour = $(this).attr("id");
+        let split = hour.split("a")[0];
+        let time = date.format("H");
+
+        if (parseInt(split) < time) {
+            $(this).children(".textarea").addClass("past");
+        }else if (hour == time) {
+            $(this).children(".textarea").addClass("present");
+        }else {
+            $(this).children(".textarea").addClass("future");
+        }
     });
 
 });
