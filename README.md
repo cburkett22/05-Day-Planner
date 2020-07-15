@@ -8,9 +8,11 @@ The text boxes within the scheduler will periodically change color accordingly (
 
 ## Legend
 
+```
 Grey text box = Past
 Red text box = Present
 Green text box = Future
+```
 
 ## User Story
 
@@ -26,5 +28,7 @@ SO THAT I can manage my time effectively
 
 ## URLs
 
+```
 GitHub: https://github.com/cburkett22/05-Day-Planner
 Project: https://cburkett22.github.io/05-Day-Planner/
+```
