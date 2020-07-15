@@ -6,6 +6,8 @@ In this project I have created a Work Day Scheduler that will allow the user to 
 
 The text boxes within the scheduler will periodically change color accordingly (refer to the Legend for more information).
 
+The "Clear Entries" button will clear all data within the local storage and refresh the page.
+
 ## Legend
 
 ```

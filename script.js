@@ -3,6 +3,12 @@ $(document).ready(function() {
     let date = moment();
     $("#currentDay").html(date.format("dddd, MMMM Do YYYY, H:mm"));
 
+    // Clear entries
+    $("#clear").click(function() {
+        localStorage.clear();
+        location.reload();
+    });
+
     // Save text in local storage
     let saveBtn = $("button");
     $("#9am .textarea").val(localStorage.getItem("9am"));
