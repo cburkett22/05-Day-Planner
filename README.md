@@ -4,6 +4,8 @@
 
 In this project I have created a Work Day Scheduler that will allow the user to enter information into the text boxes for that hour, which will be saved to the local storage.
 
+The text boxes within the scheduler will periodically change color accordingly (refer to the Legend for more information).
+
 ## Legend
 
 Grey text box = Past
